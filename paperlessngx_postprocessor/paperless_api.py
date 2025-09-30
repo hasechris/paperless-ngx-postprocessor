@@ -187,6 +187,7 @@ class PaperlessAPI:
         new_metadata["added_date"] = added_date.strftime("%F")
         new_metadata["added_date_object"] = added_date
         new_metadata["custom_fields"] = metadata["custom_fields"]
+        new_metadata["content"] = metadata["content"]
         
         return new_metadata
 

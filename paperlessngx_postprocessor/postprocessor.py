@@ -243,7 +243,9 @@ class DocumentRuleProcessor:
                             custom_field_matched = False
                             for custom_field_object in writable_metadata["custom_fields"]:
                                 if custom_field_object.get('field') == custom_field_object_definition.get('id'):
+                                    # we iterated over the custom_fields and found the id. 
                                     custom_field_matched = True
+                                    merged_metadata = {**writable_metadata, **read_only_metadata}
                                     custom_field_object["value"] = template.render(**merged_metadata)
                             
                             if not custom_field_matched:
